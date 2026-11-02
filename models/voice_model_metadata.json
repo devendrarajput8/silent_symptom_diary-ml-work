@@ -1,0 +1,53 @@
+{
+  "project": "Silent Symptom Diary",
+  "model_name": "RandomForest",
+  "dataset": "UCI Parkinsons (dataset ID 174)",
+  "target_column": "status",
+  "target_mapping": {
+    "0": "healthy_control",
+    "1": "parkinsons_label"
+  },
+  "feature_columns": [
+    "MDVP:Fo",
+    "MDVP:Fhi",
+    "MDVP:Flo",
+    "MDVP:Jitter",
+    "MDVP:Jitter_2",
+    "MDVP:RAP",
+    "MDVP:PPQ",
+    "Jitter:DDP",
+    "MDVP:Shimmer",
+    "MDVP:Shimmer_2",
+    "Shimmer:APQ3",
+    "Shimmer:APQ5",
+    "MDVP:APQ",
+    "Shimmer:DDA",
+    "NHR",
+    "HNR",
+    "RPDE",
+    "DFA",
+    "spread1",
+    "spread2",
+    "D2",
+    "PPE"
+  ],
+  "split_method": "GroupShuffleSplit by participant identifier parsed from name",
+  "test_size": 0.25,
+  "random_state": 42,
+  "metrics": {
+    "model": "RandomForest",
+    "accuracy": 0.7346938775510204,
+    "precision": 0.75,
+    "recall": 0.972972972972973,
+    "f1": 0.8470588235294118,
+    "roc_auc": 0.6846846846846847
+  },
+  "input_type": "22 precomputed acoustic feature values",
+  "raw_audio_supported": false,
+  "warning": "Research/hackathon prototype only; not for clinical diagnosis.",
+  "feature_name_note": {
+    "MDVP:Jitter_2": "Second jitter column in the original 22-column order; suffix added only to make JSON keys unique.",
+    "MDVP:Shimmer_2": "Second shimmer column in the original 22-column order; suffix added only to make JSON keys unique."
+  },
+  "integration_note": "The model was trained with 22 columns in the order listed here. The second duplicate display names were disambiguated for JSON keys. The API converts values to a NumPy array in this exact order to preserve positional compatibility."
+}
